@@ -1,0 +1,20 @@
+
+Options +FollowSymLinks
+RewriteEngine On
+
+# تغییرات در این قسمت
+RewriteCond %{REQUEST_URI} !^/ipanel/
+RewriteRule ^ipanel/(.*)$ /ipanel/index.php?page=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^index/([^/]+)/?$ index.php?page=index&param=$1 [L,QSA]
+
+RewriteCond %{HTTP_USER_AGENT} (Googlebot|bingbot|OtherBotName) [NC]
+RewriteRule ^(ipanel|itheme|icore|irepository|vendor)/ - [R=403,L]
+
+
