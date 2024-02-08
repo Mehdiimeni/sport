@@ -139,11 +139,7 @@
 
             <?php } ?>
 
-            <?php if ($rbac->checkPermissionPartByName('documents') or
-            $rbac->checkPermissionPartByName('transfer') or
-            $rbac->checkPermissionPartByName('cheque') or
-            $rbac->checkPermissionPartByName('cash') or
-            $rbac->checkPermissionPartByName('agent')  ) { ?>
+            <?php if ($rbac->checkPermissionPartByName('documents')  ) { ?>
                                 
                             <ul class="navbar-nav">
 
@@ -155,18 +151,7 @@
                                     <?php if ($rbac->checkPermissionPartByName('documents')) { ?>
                                                 <a href="./remittance" class="dropdown-item"> <?php echo _lang['documents']; ?></a>
                                                 <?php } ?>
-                                                <?php if ($rbac->checkPermissionPartByName('transfer')) { ?>
-                                                <a href="./remittance_form1" class="dropdown-item"> <?php echo _lang['transfer']; ?></a>
-                                                <?php } ?>
-                                                <?php if ($rbac->checkPermissionPartByName('cheque')) { ?>
-                                                <a href="./remittance_form2" class="dropdown-item"> <?php echo _lang['cheque']; ?></a>
-                                                <?php } ?>
-                                                <?php if ($rbac->checkPermissionPartByName('cash')) { ?>
-                                                <a href="./remittance_form3" class="dropdown-item"> <?php echo _lang['cash']; ?></a>
-                                                <?php } ?>
-                                                <?php if ($rbac->checkPermissionPartByName('agent')) { ?>
-                                                <a href="./remittance_form4" class="dropdown-item"> <?php echo _lang['agent']; ?></a>
-                                                <?php } ?>
+                                                
 
                                         
                                     </div>
@@ -177,10 +162,8 @@
                             <?php } ?>
 
 
-                            <?php if ($rbac->checkPermissionPartByName('organization') or
-            $rbac->checkPermissionPartByName('companies') or
-            $rbac->checkPermissionPartByName('banks') or
-            $rbac->checkPermissionPartByName('balances')) { ?>
+                            <?php if ($rbac->checkPermissionPartByName('provinces') or
+            $rbac->checkPermissionPartByName('federations') ) { ?>
                                 
                             <ul class="navbar-nav">
 
@@ -189,15 +172,40 @@
                                         <i class="uil-moneybag-alt"></i><?php echo (_lang['organization']); ?> <div class="arrow-down"></div>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                    <?php if ($rbac->checkPermissionPartByName('companies')) { ?>
-                                                <a href="./organization_companies" class="dropdown-item"> <?php echo _lang['companies']; ?></a>
+                                    <?php if ($rbac->checkPermissionPartByName('provinces')) { ?>
+                                                <a href="./provinces" class="dropdown-item"> <?php echo _lang['provinces']; ?></a>
+                                                <?php } ?>
+                                                <?php if ($rbac->checkPermissionPartByName('federations')) { ?>
+                                                <a href="./federations" class="dropdown-item"> <?php echo _lang['federations']; ?></a>
+                                                <?php } ?>
+                                               
+                                        
+
+                                        
+                                    </div>
+                                </li>
+                            
+
+                        </ul>
+                            <?php } ?>
+
+                            <?php if ($rbac->checkPermissionPartByName('user_position') or
+            $rbac->checkPermissionPartByName('user_achievements') ){ ?>
+                                
+                            <ul class="navbar-nav">
+
+                        <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="uil-moneybag-alt"></i><?php echo (_lang['user']); ?> <div class="arrow-down"></div>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="topnav-apps">
+                                    <?php if ($rbac->checkPermissionPartByName('user_position')) { ?>
+                                                <a href="./user_position" class="dropdown-item"> <?php echo _lang['user_position']; ?></a>
                                                 <?php } ?>
                                                 <?php if ($rbac->checkPermissionPartByName('banks')) { ?>
-                                                <a href="./organization_banks" class="dropdown-item"> <?php echo _lang['banks']; ?></a>
+                                                <a href="./user_achievements" class="dropdown-item"> <?php echo _lang['user_achievements']; ?></a>
                                                 <?php } ?>
-                                                <?php if ($rbac->checkPermissionPartByName('balances')) { ?>
-                                                <a href="./organization_balances" class="dropdown-item"> <?php echo _lang['balances']; ?></a>
-                                                <?php } ?>
+                                                
                                                
 
                                         

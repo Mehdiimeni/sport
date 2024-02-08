@@ -5,6 +5,7 @@ class User
 {
 
 	private $userTable = 'users';
+	private $cardRegisterTable = 'card_register';
 	private $fileTable = 'file_manage';
 	private $companyTable = 'company_profiles';
 	private $unitTable = 'units';
@@ -127,7 +128,29 @@ class User
 			// ارسال ایمیل تأیید ثبت‌نام یا اجرای دیگر فعالیت‌های مرتبط
 
 			// با موفقیت ثبت‌نام شد
-			return($this->login());
+			return ($this->login());
+		} else {
+			// اگر هر یک از فیلدها پر نشده بود، امکان ثبت‌نام وجود ندارد
+			return 0;
+		}
+	}
+
+
+	public function card_register()
+	{
+
+		$sql = "SELECT COUNT(*) AS count FROM $this->cardRegisterTable where user_id = ?";
+		$stmt = $this->conn->prepare($sql);
+
+		$stmt->bind_param("i", $_SESSION["user_id"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$reply = $result->fetch_assoc();
+
+		if ($reply['count'] > 0) {
+			// اگر کاربر با ایمیل یا شماره موبایل تکراری وجود داشته باشد، انتقال به مرحله بعدی امکان پذیر نیست
+
+			return 1;
 		} else {
 			// اگر هر یک از فیلدها پر نشده بود، امکان ثبت‌نام وجود ندارد
 			return 0;

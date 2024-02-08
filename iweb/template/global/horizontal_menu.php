@@ -2,34 +2,78 @@
 ///template/global/horizontal_menu.php
 ?>
 
-        <!-- ========== Horizontal Menu Start ========== -->
-        <div class="topnav">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-lg">
-                    <div class="collapse navbar-collapse" id="topnav-menu-content">
-                        <ul class="navbar-nav">
+<!-- ========== Horizontal Menu Start ========== -->
+<div class="topnav">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="topnav-menu-content">
+                <ul class="navbar-nav">
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="uil-briefcase"></i>
+                            <?php echo (_lang['dashboard']); ?>
+                            <div class="arrow-down"></div>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="topnav-apps">
+
+                            <?php if (!$user->card_register()) { ?>
+                                <a href="./card_register" class="dropdown-item">
+                                    <?php echo _lang['card_register']; ?>
+                                </a>
+                            <?php } else { ?>
+                                <a href="./user_panel" class="dropdown-item">
+                                    <?php echo _lang['user_panel']; ?>
+                                </a>
+                                <a href="./remittance" class="dropdown-item">
+                                    <?php echo _lang['documents']; ?>
+                                </a>
+                                
+
+
+                            <?php } ?>
+
+
+                        </div>
+                    </li>
+                    <?php if ($user->card_register()) { ?>
                         <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="uil-briefcase"></i><?php echo (_lang['my_briefcase']); ?> <div class="arrow-down"></div>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="topnav-apps">
-                                        
-                                                <a href="./remittance" class="dropdown-item"> <?php echo _lang['documents']; ?></a>
-                                                <a href="./remittance_form1" class="dropdown-item"> <?php echo _lang['transfer']; ?></a>
-                                                <a href="./remittance_form2" class="dropdown-item"> <?php echo _lang['cheque']; ?></a>
-                                                <a href="./remittance_form3" class="dropdown-item"> <?php echo _lang['cash']; ?></a>
-                                                <a href="./remittance_form4" class="dropdown-item"> <?php echo _lang['agent']; ?></a>
+                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-dribbble"></i>مشخصات حرفه ای <div class="arrow-down"></div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="topnav-apps">
 
-                                        
-                                    </div>
-                                </li>
-                            
+                                <a href="./user_position" class="dropdown-item">سمت</a>
+                                <a href="./user_achievements" class="dropdown-item">مدال</a>
 
-                        </ul>
-                    </div>
-                </nav>
+
+                            </div>
+                        </li>
+                    <?php } ?>
+
+                    <?php if ($user->card_register()) { ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-money-withdrawal"></i>امور مالی <div class="arrow-down"></div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="topnav-apps">
+
+                                <a href="./recharge" class="dropdown-item">شارژ</a>
+                                <a href="./account" class="dropdown-item">حساب</a>
+
+
+                            </div>
+                        </li>
+                    <?php } ?>
+
+
+                </ul>
             </div>
-        </div>
-        <!-- ========== Horizontal Menu End ========== -->
-        <div class="content-page">
+        </nav>
+    </div>
+</div>
+<!-- ========== Horizontal Menu End ========== -->
+<div class="content-page">

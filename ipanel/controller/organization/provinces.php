@@ -1,5 +1,5 @@
 <?php
-///controller/organization/organization_companies.php
+///controller/organization/provinces.php
 
 
 $config = Configuration::getInstance();
@@ -11,4 +11,4 @@ $text_tools = TextTools::getInstance();
 $rbac = new RBAC($db);
 
 
-$unique_fields  = base64_encode(serialize('company_name'));
+$unique_fields  = base64_encode(serialize('provinces_name'));

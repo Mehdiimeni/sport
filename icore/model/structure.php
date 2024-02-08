@@ -9,6 +9,8 @@ class Structure
 	private $operationsTable = 'operations';
 	private $companyTable = 'company_profiles';
 	private $organizationCompanyTable = 'organization_company';
+	private $organizationProvincesTable = 'organization_provinces';
+	private $organizationFederationsTable = 'organization_federations';
 	private $organizationBankTable = 'organization_bank';
 	private $organizationBalanceTable = 'organization_balance';
 	private $userPartsTable = 'users_parts';
@@ -273,6 +275,34 @@ class Structure
 		return $result;
 
 	}
+
+
+	public function getOrganizationProvinces()
+	{
+		$sqlQuery = "SELECT *
+        FROM " . $this->organizationProvincesTable;
+
+		$stmt = $this->conn->prepare($sqlQuery);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		return $result;
+
+	}
+
+	public function getOrganizationFederations()
+	{
+		$sqlQuery = "SELECT *
+        FROM " . $this->organizationFederationsTable;
+
+		$stmt = $this->conn->prepare($sqlQuery);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		return $result;
+
+	}
+
+
+	
 
 	public function getOrganizationBanks()
 	{

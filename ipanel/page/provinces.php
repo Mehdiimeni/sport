@@ -1,5 +1,5 @@
 <?php
-//page / organization_banks
+//page / organization_companies
 
 $config = Configuration::getInstance();
     $database = Database::getInstance($config);
@@ -22,7 +22,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $objFileCaller->includeFileWithController('.', 'global/', 'page_css_table');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_top');
     $objFileCaller->includeFileWithController('.', 'global/', 'menu');
-    $objFileCaller->includeFileWithController('.', 'organization/', 'organization_banks_details');
+    $objFileCaller->includeFileWithController('.', 'organization/', 'provinces_details');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_footer');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_js_table');
 } else {
@@ -30,7 +30,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $objFileCaller->includeFileWithController('.', 'global/', 'page_css_table');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_top');
     $objFileCaller->includeFileWithController('.', 'global/', 'menu');
-    $objFileCaller->includeFileWithController('.', 'organization/', 'organization_banks');
+    $objFileCaller->includeFileWithController('.', 'organization/', 'provinces');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_footer');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_js_table');
 

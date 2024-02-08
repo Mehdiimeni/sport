@@ -269,5 +269,13 @@ return [
     'register_user' => 'ثبت نام کاربر',
     'i_accept_terms' => 'من با شرایط و قوانین موافقم',
     'invalid_register' => 'ثبت نام نامعتبر است',
+    'card_register' => 'ثبت نام  کارت',
+    'user_panel' => 'پنل کاربری',
+    'user_position'=>'سمت کاربر',
+    'user_achievements'=>'مدال کاربر',
+    'provinces'=>'استان‌ها',
+    'federations'=>'فدراسیون‌ها',
+    'provinces_name'=>'استان',
+    'federations_name'=>'فدراسیون',
 ];
 ?>

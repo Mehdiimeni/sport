@@ -6,7 +6,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-                <script>document.write(new Date().getFullYear())</script> <?php echo _lang['company_copy_right']; ?>
+                <script>document.write(new Date().getFullYear())</script>
+                <?php echo _lang['company_copy_right']; ?>
             </div>
             <div class="col-md-6">
                 <div class="text-md-end footer-links d-none d-md-block">
@@ -43,18 +44,19 @@
 <script src="./itheme/panel/js/pages/demo.calendar.js"></script>
 
 <script src="./itheme/panel/vendor/dropzone/min/dropzone.min.js"></script>
-        <!-- init js -->
-        <script src="./itheme/panel/js/ui/component.fileupload.js"></script>
+<!-- init js -->
+<script src="./itheme/panel/js/ui/component.fileupload.js"></script>
 
 <!-- App js -->
 <script src="./itheme/panel/js/app.min.js"></script>
 
 
 
+<script src="./itheme/panel/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
 
-
-
-<script src="./itheme/panel/js/ticket.js"></script>
+<!-- Wizard Form Demo js -->
+<script src="./itheme/panel/js/pages/demo.form-wizard.js"></script>
+<script src = "./itheme/panel/js/ticket.js" ></script>
 <script src="./itheme/panel/js/iw.js"></script>
 
 
