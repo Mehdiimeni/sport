@@ -1,9 +1,7 @@
 <?php
 ///template/user/register.php
 ?>
-<?php
-///template/user/login.php
-?>
+
 <!DOCTYPE html>
 <html lang="<?php echo ($userLanguage); ?>" data-layout="topnav">
 
@@ -76,9 +74,9 @@
                                 <!--<p class="text-muted mb-4">Enter your email address and password to access admin panel.
                                 </p>-->
                             </div>
-                            <?php if (!empty($loginMessage) && $loginMessage != '') { ?>
-                                <div id="login-alert" class="alert alert-danger col-sm-12">
-                                    <?php echo $loginMessage; ?>
+                            <?php if (!empty($registerMessage) && $registerMessage != '') { ?>
+                                <div id="register-alert" class="alert alert-danger col-sm-12">
+                                    <?php echo $registerMessage; ?>
                                 </div>
                             <?php } ?>
 
@@ -118,6 +116,14 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="mobile" class="form-label">
+                                        <?php echo (_lang['mobile']); ?>
+                                    </label>
+                                    <input class="form-control" type="tel" name="mobile" id="mobile" required=""
+                                        placeholder="<?php echo (_lang['mobile']); ?>">
+                                </div>
+
+                                <div class="mb-3">
 
                                     <label for="password" class="form-label">
                                         <?php echo (_lang['password']); ?>
@@ -133,7 +139,7 @@
 
                                 <div class="mb-3">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signup"  name="checkbox-signup">
+                                        <input type="checkbox" class="form-check-input" id="checkbox-signup"  name="checkbox-signup" required="" >
                                         <label class="form-check-label" for="checkbox-signup"><a href="#"
                                                 class="text-muted"><?php echo (_lang['i_accept_terms']); ?></a></label>
                                     </div>
@@ -155,7 +161,7 @@
                     <div class="row mt-3">
                         <div class="col-12 text-center">
                             <p class="text-muted">
-                                <?php echo (_lang['have_account_note']); ?><a href="./login" class="text-muted ms-1"><b>
+                                <?php echo (_lang['have_account_note']); ?><a href="./register" class="text-muted ms-1"><b>
                                         <?php echo (_lang['sign_in']); ?>
                                     </b></a>
                             </p>

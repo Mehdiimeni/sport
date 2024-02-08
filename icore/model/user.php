@@ -45,6 +45,7 @@ class User
 
 			$stmt = $this->conn->prepare($sqlQuery);
 			$password = md5($this->password);
+
 			$stmt->bind_param("ss", $this->email, $password);
 			$stmt->execute();
 			$result = $stmt->get_result();
@@ -73,7 +74,7 @@ class User
 					$imege_profile = $result2->fetch_assoc();
 					$_SESSION["profile_image_name"] = $imege_profile['file_name'];
 					$_SESSION["profile_image_path"] = $imege_profile['file_path'];
-				}else{
+				} else {
 
 					$_SESSION["profile_image_name"] = "avatar-1.jpg";
 					$_SESSION["profile_image_path"] = "./itheme/panel/images/users/";
@@ -89,6 +90,50 @@ class User
 			return 0;
 		}
 	}
+	public function register()
+	{
+		if ($this->email && $this->password && $this->name && $this->mobile) {
+			// بررسی تکراری نبودن ایمیل و شماره موبایل
+			// بررسی تکراری نبودن ایمیل و موبایل
+			$sql = "SELECT COUNT(*) AS count FROM $this->userTable  WHERE email = ? OR mobile = ?";
+			$stmt = $this->conn->prepare($sql);
+
+			$stmt->bind_param("ss", $this->email, $this->mobile);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$reply = $result->fetch_assoc();
+
+			if ($reply['count'] > 0) {
+				// اگر کاربر با ایمیل یا شماره موبایل تکراری وجود داشته باشد، انتقال به مرحله بعدی امکان پذیر نیست
+
+				return 0;
+			}
+
+			// ایجاد یک کاربر جدید
+			$sql = "INSERT INTO $this->userTable  (email, password, name, mobile, role, status, unit_id, rbac_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+			$stmt = $this->conn->prepare($sql);
+			$this->email = htmlspecialchars(strip_tags($this->email));
+			$this->name = htmlspecialchars(strip_tags($this->name));
+			$this->mobile = htmlspecialchars(strip_tags($this->mobile));
+			$password = md5($this->password);
+			$role = 'member';
+			$status = 'Active';
+			$unit_id = 2;
+			$rbac_id = 3;
+
+			$stmt->bind_param("ssssssii", $this->email, $password, $this->name, $this->mobile, $role, $status, $unit_id, $rbac_id);
+
+			$stmt->execute();
+			// ارسال ایمیل تأیید ثبت‌نام یا اجرای دیگر فعالیت‌های مرتبط
+
+			// با موفقیت ثبت‌نام شد
+			return($this->login());
+		} else {
+			// اگر هر یک از فیلدها پر نشده بود، امکان ثبت‌نام وجود ندارد
+			return 0;
+		}
+	}
+
 
 
 	function getTopPerforming()
@@ -208,19 +253,19 @@ LIMIT 15;
 					 FROM " . $this->userTable . " AS users
 					 LEFT JOIN " . $this->fileTable . " AS file_manage ON users.id = file_manage.user_id
 					 WHERE users.id = ? AND file_manage.part_name = 'user_profile'";
-		
+
 		$stmt = $this->conn->prepare($sqlQuery);
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 		$result = $stmt->get_result();
-	
+
 		if ($result->num_rows > 0) {
 			return $result->fetch_assoc();
 		} else {
 			return null;
 		}
 	}
-	
+
 
 
 	public function getUsersById($id)

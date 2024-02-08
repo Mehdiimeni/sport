@@ -268,5 +268,6 @@ return [
     'full_name' => 'نام و نام خانوادگی',
     'register_user' => 'ثبت نام کاربر',
     'i_accept_terms' => 'من با شرایط و قوانین موافقم',
+    'invalid_register' => 'ثبت نام نامعتبر است',
 ];
 ?>

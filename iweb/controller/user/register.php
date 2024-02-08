@@ -24,15 +24,21 @@ if ($user->loggedIn()) {
 }
 
 
-$loginMessage = '';
-if (!empty($_POST["sign_up"]) && !empty($_POST["email"]) && !empty($_POST["name"]) && !empty($_POST["password"])) {
+$registerMessage = '';
+if (!empty($_POST["sign_up"]) && !empty($_POST["email"]) && !empty($_POST["name"]) && !empty($_POST["password"]) && !empty($_POST["checkbox-signup"]) && !empty($_POST["mobile"])) {
     $user->email = $_POST["email"];
     $user->password = $_POST["password"];
-    if ($user->login()) {
-        echo "<script>window.location.replace('./user_panel');</script>";
+    $user->name = $_POST["name"];
+    $user->mobile = $_POST["mobile"];
+    if ($user->register()) {
+        if ($user->loggedIn()) {
+            echo "<script>window.location.replace('./user_panel');</script>";
+        } else {
+            echo "<script>window.location.replace('./login');</script>";
+        }
     } else {
-        $loginMessage = _lang['invalid_login'];
+        $registerMessage = _lang['invalid_register'];
     }
-} else if (!empty($_POST["login"])) {
-    $loginMessage = _lang['field_null'];
+} else if (!empty($_POST["register"])) {
+    $registerMessage = _lang['field_null'];
 }
