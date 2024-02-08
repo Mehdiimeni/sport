@@ -19,7 +19,7 @@
                         <!-- Logo light -->
                         <a href="./" class="logo-light">
                             <span class="logo-lg">
-                                <img src="../itheme/panel/images/safe-group.png" alt="logo">
+                                <img src="../itheme/panel/images/logo.png" alt="logo">
                             </span>
                             <span class="logo-sm">
                                 <img src="../itheme/panel/icon/apple-icon-57x57.png" alt="small logo">
@@ -29,7 +29,7 @@
                         <!-- Logo Dark -->
                         <a href="./" class="logo-dark">
                             <span class="logo-lg">
-                                <img src="../itheme/panel/images/safe-group.png" alt="dark logo">
+                                <img src="../itheme/panel/images/logo.png" alt="dark logo">
                             </span>
                             <span class="logo-sm">
                                 <img src="../itheme/panel/icon/apple-icon-57x57.png" alt="small logo">

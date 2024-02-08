@@ -1,5 +1,5 @@
 <?php
-///controller/user/login.php
+///controller/user/register.php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -14,7 +14,7 @@ $allLanguages = $config->getConfig('allLanguage');
 
 
 $config = Configuration::getInstance();
-    $database = Database::getInstance($config);
+$database = Database::getInstance($config);
 $db = $database->getConnection();
 
 $user = new User($db);
@@ -25,7 +25,7 @@ if ($user->loggedIn()) {
 
 
 $loginMessage = '';
-if (!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {
+if (!empty($_POST["sign_up"]) && !empty($_POST["email"]) && !empty($_POST["name"]) && !empty($_POST["password"])) {
     $user->email = $_POST["email"];
     $user->password = $_POST["password"];
     if ($user->login()) {

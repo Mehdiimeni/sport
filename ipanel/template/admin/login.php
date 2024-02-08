@@ -50,10 +50,10 @@
                 <!-- Logo -->
                 <div class="auth-brand text-center text-lg-start">
                     <a href="#" class="logo-dark">
-                        <span><img src="../itheme/panel/images/safe-group.png" alt="dark logo" height="22"></span>
+                        <span><img src="../itheme/panel/images/logo.png" alt="dark logo" height="200"></span>
                     </a>
                     <a href="#" class="logo-light">
-                        <span><img src="../itheme/panel/images/safe-group.png" alt="logo" height="22"></span>
+                        <span><img src="../itheme/panel/images/logo.png" alt="logo" height="200"></span>
                     </a>
                 </div>
 

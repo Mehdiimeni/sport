@@ -1,21 +1,22 @@
 <?php
 
 $router = Router::getInstance();
+$config = Configuration::getInstance();
 
 $requestUrl = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $config = Configuration::getInstance();
 $allowedHosts = $config->getConfig('allowedHosts');
-$targetPath = '/voc/ipanel/';
+$targetIpanelPath = $config->getConfig('targetIpanelPath');
 
 $routes = $config->getRoute();
 
 
-if (in_array($_SERVER['HTTP_HOST'], $allowedHosts) && strpos($requestUrl, $targetPath) !== false) {
-    $prefix = '';
-    $requestUrl = str_replace($targetPath, "/", $requestUrl);
+if (in_array($_SERVER['HTTP_HOST'], $allowedHosts) && strpos($requestUrl, $targetIpanelPath) !== false) {
+    $prefix = $config->getConfig('prefixOnline');
+    $requestUrl = str_replace($targetIpanelPath, "/", $requestUrl);
 } else {
-    $prefix = '/ipanel';
+    $prefix = $config->getConfig('prefixLocal');
 }
 
 foreach ($routes as $route) {

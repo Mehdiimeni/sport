@@ -7,7 +7,10 @@ return [
     'defaltLanguageDir' => 'rtl',
     'defaltLanguageAdmin' => 'fa',
     'defaltLanguageAdminDir' => 'rtl',
-    'allowedUrl' => '/sport/portal/',
-    'clearUrl' => '/sport/portal/',
+    'allowWebUrl' => '/sport/',
+    'clearWebUrl' => '/sport/',
+    'targetIpanelPath' => '/sport/ipanel/',
+    'prefixOnline' => '',
+    'prefixLocal' => '/ipanel',
 ];
 ?>

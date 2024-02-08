@@ -14,12 +14,12 @@ $requestUrl = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
 $allowedHosts = $config->getConfig('allowedHosts');
-$allowedUrl = $config->getConfig('allowedUrl');
-$clearUrl = $config->getConfig('clearUrl');
+$allowWebUrl = $config->getConfig('allowWebUrl');
+$clearWebUrl = $config->getConfig('clearWebUrl');
 
 
-if (in_array($_SERVER['HTTP_HOST'], $allowedHosts) && strpos($requestUrl, $allowedUrl) !== false) {
-    $requestUrl = str_replace($clearUrl, "/", $requestUrl);
+if (in_array($_SERVER['HTTP_HOST'], $allowedHosts) && strpos($requestUrl, $allowWebUrl) !== false) {
+    $requestUrl = str_replace($clearWebUrl, "/", $requestUrl);
 }
 
 

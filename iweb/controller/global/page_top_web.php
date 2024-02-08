@@ -1,5 +1,5 @@
 <?php
-///controller/global/page_top.php
+///controller/global/page_top_web.php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -15,6 +15,5 @@ $database = Database::getInstance($config);
 $db = $database->getConnection();
 
 $rbac = new RBAC($db);
-
 
 ?>
