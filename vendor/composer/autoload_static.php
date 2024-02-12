@@ -33,6 +33,7 @@ class ComposerStaticInit1ab6302a3aac0a7fd34f81ca705c0427
         'Financial' => __DIR__ . '/../..' . '/icore/model/financial.php',
         'IAPI' => __DIR__ . '/../..' . '/icore/class/api_tools.php',
         'LocationManager' => __DIR__ . '/../..' . '/icore/class/location_manager.php',
+        'PaymentService' => __DIR__ . '/../..' . '/icore/class/peyment_service.php',
         'PermissionManager' => __DIR__ . '/../..' . '/icore/model/permission_manager.php',
         'RBAC' => __DIR__ . '/../..' . '/icore/class/rbac.php',
         'Router' => __DIR__ . '/../..' . '/icore/class/router.php',

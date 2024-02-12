@@ -11,6 +11,8 @@ return [
     ['path' => '/user_achievements/{param}', 'file' => 'user_achievements'],
     ['path' => '/user_position', 'file' => 'user_position'],
     ['path' => '/user_position/{param}', 'file' => 'user_position'],
+    ['path' => '/payment', 'file' => 'payment'],
+    ['path' => '/payment/{param}', 'file' => 'payment'],
     ['path' => '/recharge', 'file' => 'recharge'],
     ['path' => '/recharge/{param}', 'file' => 'recharge'],
     ['path' => '/account', 'file' => 'account'],

@@ -28,13 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $table_set = 'card_register';
+    $amount = 2000000;
 
     $arrData = [
         'national_id' => $_POST['national_id'],
         'identity_card' => $_POST['identity_card'],
         'address' => $_POST['address'],
         'user_id' => $_SESSION['user_id'],
-
 
     ];
 
@@ -45,16 +45,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $insertResult = $dbHandler->insertData($table_set, $arrData);
 
-    $message = $insertResult['message'];
-    $insert_id = $insertResult['insert_id'];
-    // add file 
 
-    echo <<<HTML
-    <script>
-   
-            window.location.replace('./user_panel'); 
-   
-    </script>
-HTML;
+
+    $message = $insertResult['message'];
+    $orderId = $insertResult['insert_id'] + date('YmdHis');
+
+
+    $encoded_data = base64_encode(json_encode(array('amount' => $amount, 'user_id' => $_SESSION['user_id'] , 'orderId' =>$orderId , 'for' => 'register' )));
+
+    $paymentService = new PaymentService('https://intek.ir/varzesh/payment?data=' . $encoded_data);
+    $payResult = json_decode($paymentService->sendPaymentRequest($amount, $orderId), 1);
+
+    if ($payResult['status'] === 0) {
+
+
+        $paymentService->confirmPayment($payResult['token']);
+        $token = $payResult['token'];
+
+
+
+
+        header('Location: https://pna.shaparak.ir/mhui/home/index/' . $token);
+        exit;
+
+    }
+
 
 }

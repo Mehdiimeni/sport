@@ -18,6 +18,7 @@ return array(
     'Financial' => $baseDir . '/icore/model/financial.php',
     'IAPI' => $baseDir . '/icore/class/api_tools.php',
     'LocationManager' => $baseDir . '/icore/class/location_manager.php',
+    'PaymentService' => $baseDir . '/icore/class/peyment_service.php',
     'PermissionManager' => $baseDir . '/icore/model/permission_manager.php',
     'RBAC' => $baseDir . '/icore/class/rbac.php',
     'Router' => $baseDir . '/icore/class/router.php',
