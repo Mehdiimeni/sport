@@ -41,12 +41,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="uil-dribbble"></i>مشخصات حرفه ای <div class="arrow-down"></div>
+                                <i class="uil-dribbble"></i> <?php echo _lang['professional_profiles']; ?><div class="arrow-down"></div>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="topnav-apps">
 
-                                <a href="./user_position" class="dropdown-item">سمت</a>
-                                <a href="./user_achievements" class="dropdown-item">مدال</a>
+                                <a href="./user_position" class="dropdown-item"><?php echo _lang['position']; ?></a>
+                                <a href="./user_achievements" class="dropdown-item"><?php echo _lang['achievements']; ?></a>
 
 
                             </div>
@@ -57,12 +57,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-apps" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="uil-money-withdrawal"></i>امور مالی <div class="arrow-down"></div>
+                                <i class="uil-money-withdrawal"></i> <?php echo _lang['financial_affairs']; ?><div class="arrow-down"></div>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="topnav-apps">
 
-                                <a href="./recharge" class="dropdown-item">شارژ</a>
-                                <a href="./account" class="dropdown-item">حساب</a>
+                                <a href="./recharge" class="dropdown-item"><?php echo _lang['recharge']; ?></a>
+                                <a href="./account" class="dropdown-item"><?php echo _lang['account']; ?></a>
 
 
                             </div>

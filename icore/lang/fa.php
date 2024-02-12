@@ -277,5 +277,11 @@ return [
     'federations'=>'فدراسیون‌ها',
     'provinces_name'=>'استان',
     'federations_name'=>'فدراسیون',
+    'professional_profiles'=>'مشخصات حرفه ای',
+    'position'=>'سمت',
+    'achievements'=>'دستاوردها',
+    'financial_affairs'=>'مدیریت مالی',
+    'recharge'=>'شارژ',
+    'new_position'=>'سمت جدید',
 ];
 ?>
