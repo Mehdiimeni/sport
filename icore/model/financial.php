@@ -5,6 +5,7 @@ class Financial
 {
     private $userRemitTable = 'remittance_data';
     private $scheduleTable = 'schedule';
+    private $paymentTable = 'payment_data';
     private $userRemitF1Table = 'remittance_form1';
     private $userRemitF2Table = 'remittance_form2';
     private $userRemitF3Table = 'remittance_form3';
@@ -143,6 +144,53 @@ class Financial
         $stmt->execute();
         $result = $stmt->get_result();
         return $result;
+
+    }
+
+    public function getPayments()
+    {
+
+        $user_id = $_SESSION["user_id"];
+        $sqlWhere = "   user_id = " . $user_id;
+
+        $stmt = $this->conn->prepare("SELECT *
+            FROM " . $this->paymentTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+
+    }
+
+    public function getWalletBalance()
+    {
+
+        $user_id = $_SESSION["user_id"];
+        $sqlWhere = " forSet = 'recharge' and  user_id = " . $user_id;
+
+        $stmt = $this->conn->prepare("SELECT SUM(Amount) as Total
+            FROM " . $this->paymentTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['Total'];
+
+    }
+
+    public function getUserScore()
+    {
+
+        $user_id = $_SESSION["user_id"];
+        $sqlWhere = " forSet = 'recharge' and  user_id = " . $user_id;
+
+        $stmt = $this->conn->prepare("SELECT COUNT(id) as Total
+            FROM " . $this->paymentTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['Total'];
 
     }
 

@@ -6,7 +6,7 @@ class PaymentService
     private $corporationPin;
     private $callbackUrl;
 
-    public function __construct($callbackUrl)
+    public function __construct($callbackUrl = '')
     {
         $this->baseUrl = 'https://pna.shaparak.ir/mhipg/api/Payment';
         $this->cookie = 'cookiesession1=678B2875BDF02342BF323F0C82CA0720';

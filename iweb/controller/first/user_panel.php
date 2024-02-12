@@ -8,6 +8,8 @@ $db = $database->getConnection();
 $user = new User($db);
 $financial = new Financial($db);
 
+$allPayments = $financial->getPayments();
+
 
 if (!$user->loggedIn()) {
     echo "<script>window.location.replace('./login');</script>";
@@ -18,6 +20,10 @@ if (!$user->card_register()) {
     echo "<script>window.location.replace('./card_register');</script>";
     exit();
 }
+
+
+$walletBalance = $financial->getWalletBalance();
+$userScore = $financial->getUserScore()*10;
 
 
 ?>

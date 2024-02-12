@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $table_set = 'card_register';
-    $amount = 2000000;
+    $amount = 15000;
 
     $arrData = [
         'national_id' => $_POST['national_id'],
@@ -48,12 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     $message = $insertResult['message'];
-    $orderId = $insertResult['insert_id'] + date('YmdHis');
+    $orderId = $_SESSION['user_id'] + date('YmdHis');
 
 
     $encoded_data = base64_encode(json_encode(array('amount' => $amount, 'user_id' => $_SESSION['user_id'] , 'orderId' =>$orderId , 'for' => 'register' )));
 
-    $paymentService = new PaymentService('https://intek.ir/varzesh/payment?data=' . $encoded_data);
+    $paymentService = new PaymentService('https://chairblog.ir/payment?data=' . $encoded_data);
     $payResult = json_decode($paymentService->sendPaymentRequest($amount, $orderId), 1);
 
     if ($payResult['status'] === 0) {

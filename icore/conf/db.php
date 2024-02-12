@@ -9,9 +9,9 @@ return [
     ],
     'production' => [
         'host' => 'localhost',
-        'user' => 'sport',
+        'user' => 'chairblo_sport',
         'password' => 'Massbin44@2',
-        'database' => 'rayair_ticket',
+        'database' => 'chairblo_sport',
     ],
 ];
 ?>

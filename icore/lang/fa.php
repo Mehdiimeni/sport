@@ -283,5 +283,17 @@ return [
     'financial_affairs'=>'مدیریت مالی',
     'recharge'=>'شارژ',
     'new_position'=>'سمت جدید',
+    'expiration'=>'انقضا',
+    'cvv2'=>'CVV2',
+    'list_payments'=>'لیست پرداختی ',
+    'date'=>'تاریخ',
+    'for'=>'بابت',
+    'confirmation'=>'تایید',
+    'disapproval'=>'عدم تایید',
+    'issue_tracking'=>'شماره پیگیری',
+    'order_id'=>'شماره سفارش',
+    'wallet'=>'کیف پول',
+    'score'=>'امتیاز',
+
 ];
 ?>
