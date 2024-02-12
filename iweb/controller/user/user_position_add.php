@@ -1,9 +1,13 @@
 <?php
-///controller/financial/remittance_add.php
+///controller/user/user_position_add.php
+$config = Configuration::getInstance();
+$database = Database::getInstance($config);
+$db = $database->getConnection();
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title = $_POST['remittance_title'];
-    $description = $_POST['remittance_description'];
+    $title = $_POST['position_title'];
+    $description = $_POST['position_description'];
 
     // Check if file is uploaded successfully
 
@@ -22,18 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    $table_set = 'remittance_data';
+    $table_set = 'user_position';
 
     $arrData = [
-        'remittance_title' => $_POST['remittance_title'],
-        'remittance_description' => $_POST['remittance_description'],
+        'position_title' => $_POST['position_title'],
+        'position_description' => $_POST['position_description'],
         'user_id' => $_SESSION['user_id'],
 
 
     ];
 
     $unique_fields = [
-        'remittance_title'
+        'position_title'
     ];
 
 
@@ -48,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $arrData = [
         'file_name' => $uploadedFile,
         'file_path' => $uploadDir,
-        'file_title' => $_POST['remittance_title'],
+        'file_title' => $_POST['position_title'],
         'user_id' => $_SESSION['user_id'],
         'part_id' => $insert_id,
-        'part_name' => 'remittance'
+        'part_name' => 'position'
 
     ];
 
@@ -68,32 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script>
         alert('$message');
         if ('$message' === 'Data inserted successfully.') {
-            window.location.replace('./remittance'); 
+            window.location.replace('./user_position'); 
         }
     </script>
 HTML;
 
 }
 
-
-/*
-
-
-$updateData = [
-    'name' => 'Updated Name',
-    'email' => 'updated@example.com',
-    // ... other fields ...
-];
-
-$whereCondition = 'id = 1'; // مثالی از شرایط برای انتخاب ردیف‌های مورد نظر
-
-$resultUpdate = $dataHandler->updateData('users', $updateData, $whereCondition);
-echo $resultUpdate;
-
-// مثال برای حذف
-$whereConditionDelete = 'id = 2'; // مثالی از شرایط برای انتخاب ردیف‌های مورد نظر
-
-$resultDelete = $dataHandler->deleteData('users', $whereConditionDelete);
-echo $resultDelete;
-
-*/

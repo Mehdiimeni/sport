@@ -6,6 +6,10 @@ class User
 
 	private $userTable = 'users';
 	private $cardRegisterTable = 'card_register';
+	private $userPositionTable = 'user_position';
+	private $provincesTable = 'organization_provinces';
+	private $federationsTable = 'organization_federations';
+	private $userAchievementTable = 'user_achievement';
 	private $fileTable = 'file_manage';
 	private $companyTable = 'company_profiles';
 	private $unitTable = 'units';
@@ -32,6 +36,82 @@ class User
 			return true;
 		}
 	}
+
+
+	public function getPosition()
+    {
+
+        $user_id = $_SESSION["user_id"];
+        $sqlWhere = "   user_id = " . $user_id;
+
+        $stmt = $this->conn->prepare("SELECT *
+            FROM " . $this->userPositionTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+
+    }
+
+
+	public function getPositionById($id)
+    {
+        $sql = "SELECT * FROM $this->userPositionTable WHERE id = ?";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return $result;
+    }
+
+
+	public function getProvinceActive()
+    {
+
+        $sqlWhere = " 1 ";
+
+        $stmt = $this->conn->prepare("SELECT *
+            FROM " . $this->provincesTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+
+    }
+
+	public function getFederationActive()
+    {
+
+        $sqlWhere = " 1 ";
+
+        $stmt = $this->conn->prepare("SELECT *
+            FROM " . $this->federationsTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+
+    }
+
+
+	public function getAchievement()
+    {
+
+        $user_id = $_SESSION["user_id"];
+        $sqlWhere = "   user_id = " . $user_id;
+
+        $stmt = $this->conn->prepare("SELECT *
+            FROM " . $this->userAchievementTable . " 
+            WHERE  $sqlWhere");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+
+    }
 
 
 	public function login()

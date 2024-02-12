@@ -75,24 +75,24 @@
                                             <td>
                                                 <?php if ($position['status'] === 'Pending'): ?>
                                                 <span class="badge bg-dark">
-                                                    <?php echo $position['status']; ?>
+                                                    <?php echo _lang['pending']; ?>
                                                 </span>
                                                 <?php elseif ($position['status'] === 'Acepted'): ?>
                                                 <span class="badge bg-success">
-                                                    <?php echo $position['status']; ?>
+                                                    <?php echo _lang['acepted']; ?>
                                                 </span>
                                                 <?php elseif ($position['status'] === 'Regect'): ?>
                                                 <span class="badge bg-warning">
-                                                    <?php echo $position['status']; ?>
+                                                    <?php echo _lang['regect']; ?>
                                                 </span>
                                                 <?php elseif ($position['status'] === 'Archive'): ?>
                                                 <span class="badge bg-info">
-                                                    <?php echo $position['status']; ?>
+                                                    <?php echo _lang['archive']; ?>
                                                 </span>
                                                 <?php endif; ?>
                                             </td>
                                             <td class="table-action">
-                                                <a href="./user_position?position_id=<?php echo $position['id']; ?>"
+                                                <a href="./user_position?id=<?php echo $position['id']; ?>"
                                                     class="action-icon"><i class="mdi mdi-eye"></i></a>
                                             </td>
                                         </tr>

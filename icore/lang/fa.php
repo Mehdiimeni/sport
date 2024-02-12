@@ -294,6 +294,10 @@ return [
     'order_id'=>'شماره سفارش',
     'wallet'=>'کیف پول',
     'score'=>'امتیاز',
+    'new_achievements'=>'مدال جدید',
+    'position_details' => 'جزئیات سمت',
+    'achievements_title' => 'عنوان مدال',
+   
 
 ];
 ?>
