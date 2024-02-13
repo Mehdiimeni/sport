@@ -68,6 +68,25 @@ class User
         return $result;
     }
 
+	public function getAchievementById($id)
+	{
+		$sql = "SELECT ua.*, op.provinces_name, of.federations_name 
+				FROM $this->userAchievementTable ua 
+				LEFT JOIN organization_provinces op ON ua.provinces_id = op.id
+				LEFT JOIN organization_federations of ON ua.federations_id = of.id
+				WHERE ua.id = ?";
+	
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+	
+		$result = $stmt->get_result();
+		$stmt->close();
+	
+		return $result;
+	}
+	
+
 
 	public function getProvinceActive()
     {
@@ -97,6 +116,8 @@ class User
 
     }
 
+
+	
 
 	public function getAchievement()
     {

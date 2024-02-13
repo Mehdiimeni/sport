@@ -40,13 +40,9 @@
 
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-
-
-
                                 <h3 class="mt-0">
                                     <?php echo $positionDetail['position_title']; ?>
                                 </h3>
-
                                 <!-- project title-->
                             </div>
 

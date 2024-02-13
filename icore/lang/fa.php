@@ -296,6 +296,7 @@ return [
     'score'=>'امتیاز',
     'new_achievements'=>'مدال جدید',
     'position_details' => 'جزئیات سمت',
+    'achievement_details' => 'جزئیات مدال',
     'achievements_title' => 'عنوان مدال',
    
 
