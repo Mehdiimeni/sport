@@ -29,12 +29,21 @@ class Database
     {
         $allowedHosts = $this->config->getConfig('allowedHosts');
         $environment = in_array($_SERVER['HTTP_HOST'], $allowedHosts) ? 'localhost' : 'production';
-
+    
         $this->host = $this->config->getDB($environment, 'host');
         $this->user = $this->config->getDB($environment, 'user');
         $this->password = $this->config->getDB($environment, 'password');
         $this->database = $this->config->getDB($environment, 'database');
+    
+        $conn = new mysqli($this->host, $this->user, $this->password, $this->database);
+        if ($conn->connect_error) {
+            die("Error failed to connect to MySQL: " . $conn->connect_error);
+        } else {
+            $conn->set_charset("utf8");
+            return $conn;
+        }
     }
+    
 
     public function getConnection()
     {

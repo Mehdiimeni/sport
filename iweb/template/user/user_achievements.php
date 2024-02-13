@@ -76,19 +76,19 @@
                                             <td>
                                                 <?php if ($achievement['status'] === 'Pending'): ?>
                                                 <span class="badge bg-dark">
-                                                    <?php echo $achievement['status']; ?>
+                                                    <?php echo _lang['pending']; ?>
                                                 </span>
                                                 <?php elseif ($achievement['status'] === 'Acepted'): ?>
                                                 <span class="badge bg-success">
-                                                    <?php echo $achievement['status']; ?>
+                                                    <?php echo _lang['acepted']; ?>
                                                 </span>
                                                 <?php elseif ($achievement['status'] === 'Regect'): ?>
                                                 <span class="badge bg-warning">
-                                                    <?php echo $achievement['status']; ?>
+                                                    <?php echo _lang['regect']; ?>
                                                 </span>
                                                 <?php elseif ($achievement['status'] === 'Archive'): ?>
                                                 <span class="badge bg-info">
-                                                    <?php echo $achievement['status']; ?>
+                                                    <?php echo _lang['archive']; ?>
                                                 </span>
                                                 <?php endif; ?>
                                             </td>
