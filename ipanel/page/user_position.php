@@ -22,7 +22,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $objFileCaller->includeFileWithController('.', 'global/', 'page_css_table');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_top');
     $objFileCaller->includeFileWithController('.', 'global/', 'menu');
-    $objFileCaller->includeFileWithController('.', 'user/', 'user_position');
+    $objFileCaller->includeFileWithController('.', 'user/', 'user_position_details');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_footer');
     $objFileCaller->includeFileWithController('.', 'global/', 'page_js_table');
 } else {

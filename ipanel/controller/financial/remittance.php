@@ -1,7 +1,7 @@
 <?php
 ///controller/financial/remittance.php
 $config = Configuration::getInstance();
-    $database = Database::getInstance($config);
+$database = Database::getInstance($config);
 $db = $database->getConnection();
 
 $admin = new Admin($db);
